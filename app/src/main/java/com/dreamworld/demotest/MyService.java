@@ -37,11 +37,13 @@ public class MyService extends Service {
     private IBinder mBinder = new MyServiceBinder();
 
     public IBinder onBind(Intent intent) {
+        Log.i(getString(R.string.getstring), "onBind");
         return mBinder;
     }
 
     @Override
     public boolean onUnbind(Intent intent) {
+        Log.i(getString(R.string.getstring), "onUnbind");
         return super.onUnbind(intent);
     }
 
