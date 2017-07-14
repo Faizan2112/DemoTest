@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ServiceActivity extends AppCompatActivity implements View.OnClickListener {
 Intent serviceIntent ;
@@ -57,11 +58,14 @@ public boolean mIsBound ;
 
                 startService(serviceIntent);
 
+                //Toast.makeText(getApplicationContext(),"service started ",Toast.LENGTH_LONG).show();
                 break;
 
 
             case R.id.sStopService:
              stopService(serviceIntent);
+
+              //  Toast.makeText(getApplicationContext(),"service stop ",Toast.LENGTH_LONG).show();
                 break;
 
             case R.id.sBoundService:
@@ -106,6 +110,7 @@ public boolean mIsBound ;
 
         }
  bindService(serviceIntent,mServiceConnection, Context.BIND_AUTO_CREATE);
+        Toast.makeText(getApplicationContext(),"service bound ",Toast.LENGTH_LONG).show();
     }
 
     public void onUnBind(){
@@ -113,6 +118,8 @@ public boolean mIsBound ;
       {
           unbindService(mServiceConnection);
           mCheckService = false ;
+
+          Toast.makeText(getApplicationContext(),"service unbound ",Toast.LENGTH_LONG).show();
       }
     }
 
