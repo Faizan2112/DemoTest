@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,4 +13,58 @@
     android:gravity="center"
     android:textSize="20sp"
     />
+
+   <Button
+       android:id="@+id/i_web_view"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="web view"
+       />
+
+    <Button
+        android:id="@+id/i_call"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="call"
+        />
+
+
+    <Button
+        android:id="@+id/i_send_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="email"
+        />
+
+    <Button
+        android:id="@+id/i_pick_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="gallary image"
+        />
+
+    <Button
+        android:id="@+id/i_camera_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="camera image"
+        />
+    <Button
+        android:id="@+id/i_share_on"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="share_on_multiple_place"
+        />
+
+
+    <ImageView
+        android:id="@+id/i_show_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        />
+
+
+
 </LinearLayout>

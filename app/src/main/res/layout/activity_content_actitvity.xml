@@ -29,6 +29,12 @@
         android:paddingRight="20dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+        <Button
+            android:id="@+id/c_load_data"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Load Contact" />
         <TextView
             android:text="test"
             android:gravity="center"
@@ -36,26 +42,6 @@
             android:id="@+id/c_Display_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/c_load_data"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="Simple Snackbar" />
-
-        <Button
-            android:id="@+id/btnActionCallback"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="With Action Callback" />
-
-        <Button
-            android:id="@+id/btnCustomSnackbar"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Custom Color" />
 
     </LinearLayout>
 
