@@ -5,90 +5,51 @@ import android.location.LocationListener;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.TextView;
+import android.widget.ListView;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.OnMapReadyCallback;
-//import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.SupportMapFragment;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
-public class LoaderActitvity extends FragmentActivity implements GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener,LocationListener,OnMapReadyCallback {
-    private static final String TAG ="sds";
-    private GoogleMap googleMap;
-    private GoogleApiClient googleApiClient;
-    private Location lastLocation;
 
-    private TextView textLat, textLong;
+public class LoaderActitvity extends AppCompatActivity{
+ private LoaderAdapter loaderAdapter ;
+    private ListView listView ;
 
-    private MapFragment mapFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loader_actitvity);
-        initGMaps();
-
-        // create GoogleApiClient
-        createGoogleApi();
-    
+       loaderAdapter = new LoaderAdapter(this);
+        listView = (ListView)findViewById(R.id.l_load_items);
+        listView.setAdapter(loaderAdapter);
+// loaderAdapter.swapData(Arrays.asList(getResources().getStringArray(R.array.my_books)));
+getSupportLoaderManager().initLoader(1,null,loaderCallbacks);
     }
 
-    private void initGMaps() {
-    }
-
-    private void createGoogleApi() {
-        Log.d(TAG, "createGoogleApi()");
-        if (googleApiClient == null) {
-//            googleApiClient = new GoogleApiClient.Builder(this).addConnectionCallbacks(this).addOnConnectionFailedListener(this)
-           //         .addApi(Lo).build();
-
-        }
-    }
-
-
+private LoaderManager.LoaderCallbacks<List<String>> loaderCallbacks = new LoaderManager.LoaderCallbacks<List<String>>() {
     @Override
-    public void onLocationChanged(Location location) {
-
+    public Loader<List<String>> onCreateLoader(int id, Bundle args) {
+        return new StringLoader(getApplicationContext());
     }
 
     @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
+    public void onLoadFinished(Loader<List<String>> loader, List<String> data) {
 
+        loaderAdapter.swapData(data);
     }
 
     @Override
-    public void onProviderEnabled(String provider) {
-
+    public void onLoaderReset(Loader<List<String>> loader) {
+      loaderAdapter.swapData(Collections.<String>emptyList());
     }
+};
 
-    @Override
-    public void onProviderDisabled(String provider) {
 
-    }
-
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
-
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-
-    }
 }

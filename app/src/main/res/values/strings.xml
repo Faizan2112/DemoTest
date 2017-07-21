@@ -2,4 +2,11 @@
     <string name="app_name">DemoTest</string>
     <string name="getstring">StringTest</string>
     <string name="title_activity_maps">Map</string>
+
+<string-array name="my_books">
+    <item>Scala Cookbook</item>
+    <item>Play Framework Recipes</item>
+    <item>How I Sold My Business: A Personal Diary</item>
+    <item>A Survival Guide for New Consultants</item>
+</string-array>
 </resources>
