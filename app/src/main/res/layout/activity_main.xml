@@ -30,4 +30,17 @@
         android:layout_height="60dp"
         android:text="Loaders  Example"/>
 
+    <Button
+        android:id="@+id/h_diff_utilss"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Diff Utilss"
+        />
+    <Button
+        android:id="@+id/h_mutiple_view_types"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Mutiple view"
+        />
+
 </LinearLayout>

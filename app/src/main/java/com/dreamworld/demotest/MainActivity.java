@@ -8,7 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-Button mIntent , mService, mBroadcast , mContent , mLoaders ;
+Button mIntent , mService, mBroadcast , mContent , mLoaders , mDiffUtils ,mMutliView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,12 +27,16 @@ Button mIntent , mService, mBroadcast , mContent , mLoaders ;
         mBroadcast = (Button)findViewById(R.id.hBroadcast);
         mContent = (Button)findViewById(R.id.hContent);
         mLoaders = (Button)findViewById(R.id.hLoaders);
+        mDiffUtils = (Button)findViewById(R.id.h_diff_utilss);
+        mMutliView =(Button)findViewById(R.id.h_mutiple_view_types);
 
         mIntent.setOnClickListener(this);
         mService.setOnClickListener(this);
         mBroadcast.setOnClickListener(this);
         mContent.setOnClickListener(this);
         mLoaders.setOnClickListener(this);
+        mDiffUtils.setOnClickListener(this);
+        mMutliView.setOnClickListener(this);
     }
 
     @Override
@@ -74,6 +79,20 @@ Button mIntent , mService, mBroadcast , mContent , mLoaders ;
             {
                 Intent l = new Intent(MainActivity.this,LoaderActitvity.class);
                 startActivity(l);
+
+            }
+            break;
+            case R.id.h_diff_utilss :
+            {
+                Intent du = new Intent(MainActivity.this,DiffUtilsActivity.class);
+                startActivity(du);
+
+            }
+            break;
+            case R.id.h_mutiple_view_types:
+            {
+                Intent du = new Intent(MainActivity.this,MultiViewActivity.class);
+                startActivity(du);
 
             }
             break;
